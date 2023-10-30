@@ -4,6 +4,9 @@ scicezke i nazwy podawac z parametru
 metoda do wyswietlania
 metoda do usuwania
 metoda do zapisywania
+przemyślec return vs print
+zlikwidowac printy
+
 """
 import glob
 from typing import Any
