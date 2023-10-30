@@ -5,37 +5,57 @@ metoda do wyswietlania
 metoda do usuwania
 metoda do zapisywania
 """
-import os
+import glob
+from typing import Any
 
 from mutagen.easyid3 import EasyID3
 
 
 class Audio:
-    def __init__(self) -> None:
-        self.audiofile = EasyID3()
-        self.dir = None
+    # def __init__(self) -> None:
+    #     self.dir = None
+    #     self.audiofile = EasyID3()
 
-    def set_dir(self, dir):
-        self.dir = dir
-
-    def open_file(self, file):
-        with open(self.dir + "/" + file, "rb") as f:
+    def open_file(self, path_to_file: str) -> None:
+        self.filepath = path_to_file
+        with open(self.filepath, "rb") as f:
             self.audiofile = EasyID3(f)
 
-    def print_tags(self):
-        # try:
-        print(self.audiofile.items())
-        # except AttributeError:
-        #     print("No audiofile yet")
+    def print_tags(self) -> None:
+        try:
+            print(self.audiofile.items())
+        except AttributeError:
+            print("No audiofile yet")
 
-    def set_tag(self, tag):
-        ...
+    def set_tag(self, tag: str, value: Any) -> None:
+        self.tag = tag
+        self.audiofile[tag] = value
 
-    def get_tag(self, tag):
-        ...
+    def get_tag(self, tag: str) -> Any:
+        return self.audiofile[tag]
 
-    def save_audiofile(self):
-        ...
+    def save_audiofile(self, v1: int = 2, v2_version: int = 3) -> None:
+        self.audiofile.save(self.filepath, v1, v2_version)
+
+    # def set_dir(self, dir: str) -> None:
+    #     self.dir = dir
+
+    def change_all_in_dir(self, dir, **tags):
+        """
+        Be careful. Using no arguments when calling, will delete the existing ones.
+        TODO: jesli nie ma takiego taga, dwać None
+
+        This is another line.
+        """
+
+        for file in glob.glob(dir + "*.mp3"):
+            print(file)
+            self.open_file(file)
+            for tag, value in tags.items():
+                self.set_tag(tag, value)
+
+            self.print_tags()
+            self.save_audiofile()
 
     @staticmethod
     def print_valid_keys() -> None:
@@ -68,8 +88,17 @@ class Audio:
 #             print(audio.items())
 
 audio = Audio()
-audio.set_dir("/Users/ms/DEV/mp3-metadata/")
-audio.print_valid_keys()
+# audio.set_dir("/Users/ms/DEV/mp3-metadata/")
+# audio.print_valid_keys()
+# audio.print_tags()
+audio.open_file("/Users/ms/DEV/mp3-metadata/mp3/test.mp3")
 audio.print_tags()
-audio.open_file("test.mp3")
-audio.print_tags()
+# audio.get_tag("album")
+# audio.set_tag("album", "testowy")
+# audio.get_tag("album")
+# audio.save_audiofile()
+
+audio.change_all_in_dir(
+    "/Users/ms/DEV/mp3-metadata/mp3/", album="ana", artist="beta", zys="ddd"
+)
+# audio.print_tags()
