@@ -1,18 +1,5 @@
-mp3/output.mp3
-mp3/test.mp3
-mp3/Mikołajek cz.2/Mikoąajek 01.mp3
-mp3/Mikołajek cz.2/Mikoąajek 02.mp3
-mp3/Mikołajek cz.2/Mikoąajek 03.mp3
-mp3/Mikołajek cz.2/Mikoąajek 04.mp3
-mp3/Mikołajek cz.2/Mikoąajek 05.mp3
-mp3/Mikołajek cz.2/Mikoąajek 06.mp3
-mp3/Mikołajek cz.2/Mikoąajek 07.mp3
-mp3/Mikołajek cz.2/Mikoąajek 08.mp3
-mp3/Mikołajek cz.2/Mikoąajek 09.mp3
-mp3/Mikołajek cz.2/Mikoąajek 10.mp3
-mp3/Mikołajek cz.2/Mikoąajek 11.mp3
-mp3/Mikołajek cz.2/Mikoąajek 12.mp3
-mp3/Mikołajek cz.2/Mikoąajek 13.mp3
-mp3/Mikołajek cz.2/Mikoąajek 14.mp3
-mp3/Mikołajek cz.2/Mikoąajek 15.mp3
-mp3/output-kopia.mp3
+/mp3
+/.idea
+/.venv
+/.vscode
+/.mypy_cache
