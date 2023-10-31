@@ -55,7 +55,7 @@ class Audio:
 
         Use:
 
-        change_all_in_dir(directiry, tag1=value1, tag2=value2)
+        change_all_in_dir(directory, tag1=value1, tag2=value2)
 
         Tag must be a valid ID3 tag.
 
