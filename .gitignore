@@ -1,5 +1,6 @@
-/mp3
-/.idea
-/.venv
-/.vscode
-/.mypy_cache
+.git
+mp3
+.idea
+.venv
+.vscode
+.mypy_cache

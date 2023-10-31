@@ -1,5 +1,5 @@
 """
-Manage your MP3 tags using EasyID3 lib. 
+Manage your MP3 tags using EasyID3 lib.
 """
 import glob
 from typing import Any
@@ -47,7 +47,7 @@ class Audio:
         """
         self.audiofile.clear()
 
-    def change_all_in_dir(self, dir, **tags) -> None:
+    def change_all_in_dir(self, dir: str, **tags: str) -> None:
         """
         Returns: nothing
 
@@ -68,12 +68,12 @@ class Audio:
                 self.set_tag(tag, value)
 
             self.save_audiofile()
-            filetags = audio.return_tags()
-            print(filetags)
 
     @staticmethod
-    def add_missing_tags(filepath):
+    def add_missing_tags(filepath: str) -> None:
         """
+        Returns: nothing.
+
         When you accidentally deleted all tags using delete_tags(), you can restore an empty one using this method.
         """
         tag = ID3FileType(filepath)
@@ -83,38 +83,3 @@ class Audio:
     @staticmethod
     def print_valid_keys() -> None:
         print(EasyID3.valid_keys.keys())
-
-
-audio = Audio()
-# audio.print_valid_keys()
-# audio.open_file("/Users/ms/DEV/mp3-metadata/mp3/output.mp3")
-# audio.get_tag("album")
-# audio.set_tag("dupa", "testowy")
-# audio.get_tag("album")
-# audio.save_audiofile()
-
-# filetags = audio.return_tags()
-# print(filetags)
-
-# audio.clear_tags()
-# filetags = audio.return_tags()
-# print(filetags)
-
-audio.change_all_in_dir("/Users/ms/DEV/mp3-metadata/mp3/", album="aaa")
-filetags = audio.return_tags()
-print(filetags)
-
-# try:
-#     tag = EasyID3("/Users/ms/DEV/mp3-metadata/mp3/test.mp3")
-# except:
-#     tag = mutagen.File("/Users/ms/DEV/mp3-metadata/mp3/test.mp3", easy=True)
-#     tag.add_tags()
-#     mutagen.F
-#     print("A)")
-
-# tag = ID3FileType("/Users/ms/DEV/mp3-metadata/mp3/test.mp3")
-# tag.add_tags()
-# tag.save()
-# print(tag)
-
-# plik = ID3("/Users/ms/DEV/mp3-metadata/mp3/test.mp3")
