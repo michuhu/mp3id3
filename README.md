@@ -7,8 +7,11 @@ For all files in one directory:
 change_all_in_dir(directory, tag1=value1, tag2=value2)
 
 # e.g.
-change_all_in_dir("path/to/file", album="Before the Storm", artist="Darude", title="Sandstorm")
+change_all_in_dir("path/to/folder/", album="Before the Storm", artist="Darude", title="Sandstorm")
 ```
+
+don't forget the trailing "/"
+
 
 If you want to play with particular files and tags :
 ```

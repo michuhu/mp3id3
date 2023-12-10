@@ -6,3 +6,5 @@ idea/
 mp3/
 venv/
 vscode/
+test.py
+__pycache__
